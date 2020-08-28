@@ -16,8 +16,24 @@ import re
 
 
 def decode_bits(bits):
-    # your code here
-    return
+    pattern_one = re.split(r'(0+)', bits.strip('0'))
+    unit_rate = len(sorted(pattern_one, key=len)[0])
+    results = []
+    for match in pattern_one:
+        if '1' in match:
+            if len(match) // unit_rate == 1:
+                results.append('.')
+            else:
+                results.append('-')
+        else:
+            if len(match) // unit_rate == 1:
+                results.append('')
+            elif len(match) // unit_rate == 3:
+                results.append(' ')
+            else:
+                results.append('   ')
+    clean = ''.join(results)
+    return clean
 
 
 def decode_morse(morse):
