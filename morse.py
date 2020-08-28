@@ -14,6 +14,11 @@ __author__ = 'Kevin Clark with help from Joseph Hafed'
 from morse_dict import MORSE_2_ASCII
 import re
 
+'''
+decode_bits used re to split by delimiter zero.
+decode_morse used re to split by delimiter whitespace.
+'''
+
 
 def decode_bits(bits):
     pattern_one = re.split(r'(0+)', bits.strip('0'))
